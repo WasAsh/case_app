@@ -1,6 +1,6 @@
+import 'dart:async';
 import 'package:case_app/models/case.dart';
 import 'package:case_app/pages/add_issue.dart';
-import 'package:case_app/pages/create_account.dart';
 import 'package:case_app/pages/my_issue.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -25,6 +25,9 @@ class _HomeState extends State<Home> {
   bool isAuth = false ;
   PageController pageViewController ;
   int pageIndex = 0;
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _formKey = GlobalKey<FormState>();
+  String phone , fullName ;
 
   //ensure that user signed in or not
   @override
@@ -77,13 +80,14 @@ class _HomeState extends State<Home> {
     DocumentSnapshot doc = await caseRef.document(caseA.id).get();
 
     if(!doc.exists){
-      final phone = await Navigator.push(context , MaterialPageRoute(builder: (context) => CreateAccount()));
+//      await Navigator.push(context , MaterialPageRoute(builder: (context) => CreateAccount()));
       caseRef.document(caseA.id).setData({
         'id' : caseA.id ,
         'displayName' : caseA.displayName ,
+        'fullName' : null,
         'photoUrl' : caseA.photoUrl ,
         'email' : caseA.email ,
-        'phone' : phone ,
+        'phone' :  null,
         'timeStamp' : timeStamp ,
       });
       doc = await caseRef.document(caseA.id).get();
@@ -112,23 +116,153 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: PageView(
         children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'LogOut' ,
-                style: TextStyle(
-                  color: Colors.red ,
-                  fontSize: 20 ,
+          Scaffold(
+            appBar: AppBar(
+              title: Text('Home'),
+              centerTitle: true,
+              backgroundColor: Colors.red,
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('Edit Profile'),
+                  onPressed: (){
+                    showModalBottomSheet(
+                        context: context ,
+                        builder: (context){
+                          return ListView(
+                            children: <Widget>[
+                              Container(
+                                child: Column(
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 25),
+                                      child: Center(
+                                        child: Text(
+                                          'Enter ur phone number' ,
+                                          style: TextStyle(
+                                            fontSize: 25 ,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.all(16),
+                                      child: Container(
+                                        child: Form(
+                                          key: _formKey,
+                                          child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: <Widget>[
+                                              TextFormField(
+                                                autovalidate: true,
+                                                validator: (val){
+                                                  if(val.trim().length < 6 || val.isEmpty){
+                                                    return('The number is not correct') ;
+                                                  }else if(val.trim().length > 12){
+                                                    return('The number is too long') ;
+                                                  }else{
+                                                    return null ;
+                                                  }
+                                                },
+                                                onSaved: (val) => phone = val,
+                                                decoration: InputDecoration(
+                                                  border: OutlineInputBorder(),
+                                                  icon: Icon(Icons.phone) ,
+                                                  labelText: 'Phone number' ,
+                                                  labelStyle: TextStyle(fontSize: 12) ,
+                                                  hintText: '01234567890' ,
+                                                ),
+                                              ),
+                                              SizedBox(height: 10,) ,
+                                              TextFormField(
+                                                autovalidate: true,
+                                                validator: (val){
+                                                  if(val.trim().length < 6 || val.isEmpty){
+                                                    return('The name is not correct') ;
+                                                  }else if(val.trim().length > 30){
+                                                    return('The name is too long') ;
+                                                  }else{
+                                                    return null ;
+                                                  }
+                                                },
+                                                onSaved: (val) => fullName = val,
+                                                decoration: InputDecoration(
+                                                  border: OutlineInputBorder(),
+                                                  icon: Icon(Icons.person) ,
+                                                  labelText: 'Full Name' ,
+                                                  labelStyle: TextStyle(fontSize: 12) ,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      child: Container(
+                                        height: 50,
+                                        width: 350,
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey ,
+                                          borderRadius: BorderRadius.circular(7) ,
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            'Submit' ,
+                                            style: TextStyle(
+                                              color: Colors.white ,
+                                              fontSize: 15 ,
+                                              fontWeight: FontWeight.bold ,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      onTap: (){
+                                        final form = _formKey.currentState ;
+                                        if(form.validate()){
+                                          form.save() ;
+//                                          SnackBar snackBar = SnackBar(content: Text('Welcome !'),);
+//                                          _scaffoldKey.currentState.showSnackBar(snackBar) ;
+                                          caseRef.document(currentCase.id).updateData({
+                                            'fullName' : fullName,
+                                            'phone' :  phone,
+                                          });
+                                          Timer(Duration(seconds: 1) , (){
+                                            Navigator.pop(context) ;
+                                          });
+                                        }
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ) ;
+                        }
+                    );
+                  },
                 ),
-              ),
-              RaisedButton(
-                child: Icon(Icons.arrow_back),
-                onPressed: signOut,
-              ),
-            ],
+              ],
+            ),
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'LogOut' ,
+                  style: TextStyle(
+                    color: Colors.red ,
+                    fontSize: 20 ,
+                  ),
+                ),
+                RaisedButton(
+                  child: Icon(Icons.arrow_back),
+                  onPressed: signOut,
+                ),
+              ],
+            ),
           ),
+
           AddIssue(currentCase: currentCase,),
           MyIssue(caseId: currentCase?.id,),
         ],

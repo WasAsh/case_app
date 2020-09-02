@@ -13,10 +13,17 @@ class Issue extends StatefulWidget {
   final String issue ;
   final String fullAddress ;
   final String resType ;
+  final String city ;
   final String phone ;
-  final String displayName ;
+  final String fullName ;
+  final String fireType ;
+  final String firePlace ;
+  final String injuryCount ;
+  final String injuryType ;
 
-  Issue({this.issueId , this.ownerId , this.issue , this.fullAddress , this.resType , this.phone , this.displayName});
+
+
+  Issue({this.issueId , this.ownerId , this.issue , this.city , this.fullAddress , this.resType , this.phone , this.fullName , this.fireType , this.firePlace , this.injuryCount , this.injuryType});
 
   factory Issue.fromDoc(DocumentSnapshot doc){
     return Issue(
@@ -26,7 +33,12 @@ class Issue extends StatefulWidget {
       fullAddress: doc['fullAddress'],
       resType: doc['resType'],
       phone: doc['phone'],
-      displayName: doc['displayName'],
+      city: doc['city'],
+      fullName: doc['fullName'],
+      fireType: doc['fireType'],
+      firePlace: doc['firePlace'],
+      injuryCount: doc['injuryCount'],
+      injuryType: doc['injuryType'],
     );
   }
 
@@ -38,7 +50,12 @@ class Issue extends StatefulWidget {
     fullAddress: this.fullAddress ,
     resType: this.resType ,
     phone: this.phone ,
-    displayName: this.displayName
+    fullName: this.fullName ,
+    city: this.city ,
+    fireType: this.fireType,
+    firePlace: this.firePlace,
+    injuryCount: this.injuryCount,
+    injuryType: this.injuryType,
   );
 }
 
@@ -49,10 +66,15 @@ class _IssueState extends State<Issue> {
   final String issue ;
   final String fullAddress ;
   final String resType ;
+  final String city ;
   final String phone ;
-  final String displayName ;
+  final String fullName ;
+  final String fireType ;
+  final String firePlace ;
+  final String injuryCount ;
+  final String injuryType ;
 
-  _IssueState({this.issueId , this.ownerId , this.issue , this.fullAddress , this.resType , this.phone , this.displayName});
+  _IssueState({this.issueId , this.ownerId , this.issue , this.fullAddress , this.resType , this.phone , this.fullName , this.city, this.fireType , this.firePlace , this.injuryCount , this.injuryType});
 
   buildIssueTop(){
     return FutureBuilder(
@@ -68,11 +90,11 @@ class _IssueState extends State<Issue> {
             backgroundImage: CachedNetworkImageProvider(caseA.photoUrl),
           ),
           title: Text(
-            caseA.displayName ,
+            fullName ,
             style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold),
           ),
           subtitle: Text(
-            caseA.phone
+            phone ,
           ),
         );
       },
@@ -84,6 +106,7 @@ class _IssueState extends State<Issue> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text('Issue : $issue ') ,
+        Text('City : $city') ,
         Text('Full Address : $fullAddress'),
         Text('Rescue Type : $resType') ,
       ],
