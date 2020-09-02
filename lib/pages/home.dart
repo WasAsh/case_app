@@ -25,7 +25,6 @@ class _HomeState extends State<Home> {
   bool isAuth = false ;
   PageController pageViewController ;
   int pageIndex = 0;
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
   String phone , fullName ;
 
