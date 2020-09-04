@@ -105,7 +105,7 @@ class _IssueState extends State<Issue> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('Issue : $issue ') ,
+        Text('Issue : $issue') ,
         Text('City : $city') ,
         Text('Full Address : $fullAddress'),
         Text('Rescue Type : $resType') ,
@@ -117,9 +117,10 @@ class _IssueState extends State<Issue> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         buildIssueTop() ,
-        buildIssueBody() ,
+        Padding(padding: EdgeInsets.only(left: 30), child: buildIssueBody(),) ,
         Divider(thickness: 2,),
         SizedBox(height: 15,)
       ],

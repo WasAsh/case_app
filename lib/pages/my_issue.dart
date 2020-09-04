@@ -52,7 +52,7 @@ class _MyIssueState extends State<MyIssue> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My issues'),
+        title: Text('طلباتي'),
         centerTitle: true,
         backgroundColor: Colors.red,
       ),

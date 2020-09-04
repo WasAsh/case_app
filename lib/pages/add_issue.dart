@@ -26,7 +26,7 @@ class _AddIssueState extends State<AddIssue> {
   TextEditingController fireTypeController = TextEditingController() ;
   TextEditingController firePlaceController = TextEditingController() ;
 
-  List<String> rescueTypeItems = <String>['Police', 'Ambulance' , 'Firefighting'];
+  List<String> rescueTypeItems = <String>['شرطي', 'مسعف' , 'رجل اطفاء'];
   var selectedRescue;
   String issueId = Uuid().v4() ;
 
@@ -80,7 +80,7 @@ class _AddIssueState extends State<AddIssue> {
                 Padding(
                   padding: EdgeInsets.all(15),
                   child: Text(
-                    'Please add your information !' ,
+                    'رجاءً قم بملئ النموذج بالكامل' ,
                     style: TextStyle(
                       color: Colors.black ,
                       fontSize: 30 ,
@@ -92,7 +92,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: fullNameController,
                   decoration: InputDecoration(
-                    hintText: 'Please write your Full Name' ,
+                    hintText: 'الاسم بالكامل' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -102,7 +102,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: phoneNumController,
                   decoration: InputDecoration(
-                    hintText: 'Please write your Phone Number' ,
+                    hintText: 'رقم الهاتف' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -112,7 +112,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: cityController,
                   decoration: InputDecoration(
-                    hintText: 'Please write your City' ,
+                    hintText: 'المدينة' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -122,7 +122,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: fullAddressController,
                   decoration: InputDecoration(
-                    hintText: 'Please write your full address' ,
+                    hintText: 'العنوان بالتفصيل' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -132,7 +132,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: issueController,
                   decoration: InputDecoration(
-                    hintText: 'Please write your Issue' ,
+                    hintText: 'اشرح الموقف' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -153,7 +153,7 @@ class _AddIssueState extends State<AddIssue> {
                   },
                   value: selectedRescue,
                   isExpanded: false,
-                  hint: Text('Select Rescue Type'),
+                  hint: Text('اختر نوع الطلب'),
                 ),
                 SizedBox(height: 10,) ,
                 GestureDetector(
@@ -166,7 +166,7 @@ class _AddIssueState extends State<AddIssue> {
                     ),
                     child: Center(
                       child: Text(
-                        'Submit' ,
+                        'تأكيد' ,
                         style: TextStyle(
                           color: Colors.white ,
                           fontSize: 15 ,
@@ -238,7 +238,7 @@ class _AddIssueState extends State<AddIssue> {
                 Padding(
                   padding: EdgeInsets.all(15),
                   child: Text(
-                    'Please add your information !' ,
+                    'رجاءً قم بملئ النموذج بالكامل' ,
                     style: TextStyle(
                       color: Colors.black ,
                       fontSize: 30 ,
@@ -250,7 +250,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: injuryTypeController,
                   decoration: InputDecoration(
-                    hintText: 'Please write Injury Type' ,
+                    hintText: 'نوع الاصابة' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -260,7 +260,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: injuryCountController,
                   decoration: InputDecoration(
-                    hintText: 'Please write Injury Count' ,
+                    hintText: 'عدد الاصابات' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -270,7 +270,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: fullNameController,
                   decoration: InputDecoration(
-                    hintText: 'Please write your Full Name' ,
+                    hintText: 'الاسم كاملاً' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -280,7 +280,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: phoneNumController,
                   decoration: InputDecoration(
-                    hintText: 'Please write your Phone Number' ,
+                    hintText: 'رقم الهاتف' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -290,7 +290,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: cityController,
                   decoration: InputDecoration(
-                    hintText: 'Please write your City' ,
+                    hintText: 'المدينة' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -300,7 +300,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: fullAddressController,
                   decoration: InputDecoration(
-                    hintText: 'Please write your full address' ,
+                    hintText: 'العنوان بالكامل' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -310,7 +310,7 @@ class _AddIssueState extends State<AddIssue> {
                 TextField(
                   controller: issueController,
                   decoration: InputDecoration(
-                    hintText: 'Please write your Issue' ,
+                    hintText: 'اشرح الموقف' ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(2) ,
                     ),
@@ -331,7 +331,7 @@ class _AddIssueState extends State<AddIssue> {
                   },
                   value: selectedRescue,
                   isExpanded: false,
-                  hint: Text('Select Rescue Type'),
+                  hint: Text('نوع الطلب'),
                 ),
                 SizedBox(height: 10,) ,
                 GestureDetector(
@@ -344,7 +344,7 @@ class _AddIssueState extends State<AddIssue> {
                     ),
                     child: Center(
                       child: Text(
-                        'Submit' ,
+                        'تأكيد' ,
                         style: TextStyle(
                           color: Colors.white ,
                           fontSize: 15 ,
@@ -417,7 +417,7 @@ class _AddIssueState extends State<AddIssue> {
                   Padding(
                     padding: EdgeInsets.all(15),
                     child: Text(
-                      'Please add your information !' ,
+                      'رجاءً قم بملئ النموذج بالكامل' ,
                       style: TextStyle(
                         color: Colors.black ,
                         fontSize: 30 ,
@@ -429,7 +429,7 @@ class _AddIssueState extends State<AddIssue> {
                   TextField(
                     controller: fireTypeController,
                     decoration: InputDecoration(
-                      hintText: 'Please write Fire Type' ,
+                      hintText: 'نوع الحريق' ,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(2) ,
                       ),
@@ -439,7 +439,7 @@ class _AddIssueState extends State<AddIssue> {
                   TextField(
                     controller: firePlaceController,
                     decoration: InputDecoration(
-                      hintText: 'Please write Fire Place' ,
+                      hintText: 'مكان الحريق' ,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(2) ,
                       ),
@@ -449,7 +449,7 @@ class _AddIssueState extends State<AddIssue> {
                   TextField(
                     controller: fullNameController,
                     decoration: InputDecoration(
-                      hintText: 'Please write your Full Name' ,
+                      hintText: 'الاسم كاملاً' ,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(2) ,
                       ),
@@ -459,7 +459,7 @@ class _AddIssueState extends State<AddIssue> {
                   TextField(
                     controller: phoneNumController,
                     decoration: InputDecoration(
-                      hintText: 'Please write your Phone Number' ,
+                      hintText: 'رقم الهاتف' ,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(2) ,
                       ),
@@ -469,7 +469,7 @@ class _AddIssueState extends State<AddIssue> {
                   TextField(
                     controller: cityController,
                     decoration: InputDecoration(
-                      hintText: 'Please write your City' ,
+                      hintText: 'المدينة' ,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(2) ,
                       ),
@@ -479,7 +479,7 @@ class _AddIssueState extends State<AddIssue> {
                   TextField(
                     controller: fullAddressController,
                     decoration: InputDecoration(
-                      hintText: 'Please write your full address' ,
+                      hintText: 'العنوان كاملاً' ,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(2) ,
                       ),
@@ -489,7 +489,7 @@ class _AddIssueState extends State<AddIssue> {
                   TextField(
                     controller: issueController,
                     decoration: InputDecoration(
-                      hintText: 'Please write your Issue' ,
+                      hintText: 'اشرح الموقف' ,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(2) ,
                       ),
@@ -510,7 +510,7 @@ class _AddIssueState extends State<AddIssue> {
                     },
                     value: selectedRescue,
                     isExpanded: false,
-                    hint: Text('Select Rescue Type'),
+                    hint: Text('نوع الانقاذ'),
                   ),
                   SizedBox(height: 10,) ,
                   GestureDetector(
@@ -523,7 +523,7 @@ class _AddIssueState extends State<AddIssue> {
                       ),
                       child: Center(
                         child: Text(
-                          'Submit' ,
+                          'تأكيد' ,
                           style: TextStyle(
                             color: Colors.white ,
                             fontSize: 15 ,
@@ -546,34 +546,123 @@ class _AddIssueState extends State<AddIssue> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Issue'),
+        title: Text('اضافة طلب'),
         centerTitle: true,
         backgroundColor: Colors.red,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: ListView(
         children: <Widget>[
-          RaisedButton(
-            onPressed: (){
-              policeIssue();
-            },
-            child: Text('Police Issue'),
+          Padding(
+            padding: EdgeInsets.only(top: 30 , right: 10 , left: 10),
+            child: Text(
+              'مرحباً بك : عزيزي المواطن , قم بالتعرف على مبادئ الاسعاف الأولي بشكل عام والتي تنص على' ,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.black ,
+                fontSize: 20 ,
+                fontWeight: FontWeight.bold ,
+              ),
+            ),
           ),
-          SizedBox(height: 10,) ,
-          RaisedButton(
-            onPressed: (){
-              ambulanceIssue();
-            },
-            child: Text('Ambulance Issue'),
+          Padding(
+            padding: EdgeInsets.only(top:10 , bottom: 20 , left: 20 , right: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                Text(
+                  'أولاً: السيطرة على موقع الحدث بشكل تام' ,
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    color: Colors.black87 ,
+                    fontSize: 18 ,
+                    decoration: TextDecoration.none ,
+                  ),
+                ),
+                Text(
+                  'ثانياُ: عدم اعتبار الشخص المصاب ميتاً حتى وان زالت مظاهر الحياة عن كالتنفس والنبض' ,
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    color: Colors.black87 ,
+                    fontSize: 18 ,
+                    decoration: TextDecoration.none ,
+                  ),
+                ),
+                Text(
+                  'ثالثاً: ابعاد الشخص المصاب عن مصدر الخطر' ,
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    color: Colors.black87 ,
+                    fontSize: 18 ,
+                    decoration: TextDecoration.none ,
+                  ),
+                ),
+                Text(
+                  'رابعاً: الاهتمام بعملية انعاش القلب وعملية التنفس الاصطناعي والصدمة' ,
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    color: Colors.black87 ,
+                    fontSize: 18 ,
+                    decoration: TextDecoration.none ,
+                  ),
+                ),
+                Text(
+                  'خامساً: العناية بالشخص المصاب قبل وصول الجهات المعنية' ,
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    color: Colors.black87 ,
+                    fontSize: 18 ,
+                    decoration: TextDecoration.none ,
+                  ),
+                ),
+              ],
+            ),
           ),
-          SizedBox(height: 10,) ,
-          RaisedButton(
-            onPressed: (){
-              fireIssue();
-            },
-            child: Text('Fire Issue'),
+          Padding(
+            padding: EdgeInsets.only(right: 10 , left: 10),
+            child: Text(
+              'من فضلك قم باختيار نوع الطلب المراد تقديمه' ,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.black ,
+                fontSize: 20 ,
+                fontWeight: FontWeight.bold ,
+              ),
+            ),
           ),
-          SizedBox(height: 10,) ,
+          Padding(
+            padding: EdgeInsets.only(top:10 , right: 10 , left: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                RaisedButton(
+                  child: Text(
+                    'طلب شرطة' ,
+                  ),
+                  onPressed: (){
+                    policeIssue();
+                  },
+                ),
+                RaisedButton(
+                  child: Text(
+                    'طلب اسعاف' ,
+                  ),
+                  onPressed: (){
+                    ambulanceIssue();
+                  },
+                ),
+                RaisedButton(
+                  child: Text(
+                    'طلب حريق' ,
+                  ),
+                  onPressed: (){
+                    fireIssue();
+                  },
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
