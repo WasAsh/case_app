@@ -28,7 +28,6 @@ class _AddIssueState extends State<AddIssue> {
 
   List<String> rescueTypeItems = <String>['شرطي', 'مسعف' , 'رجل اطفاء'];
   var selectedRescue;
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
   String issueId = Uuid().v4() ;
 
  // for police issue
@@ -58,8 +57,6 @@ class _AddIssueState extends State<AddIssue> {
       fullAddress: fullAddressController.text ,
       resType: selectedRescue ,
     );
-    SnackBar snackBar = SnackBar(content: Text('تم اضافة النموذج'),);
-    _scaffoldKey.currentState.showSnackBar(snackBar) ;
     fullNameController.clear();
     phoneNumController.clear();
     cityController.clear();
@@ -216,8 +213,6 @@ class _AddIssueState extends State<AddIssue> {
       fullAddress: fullAddressController.text ,
       resType: selectedRescue ,
     );
-    SnackBar snackBar = SnackBar(content: Text('تم اضافة النموذج'),);
-    _scaffoldKey.currentState.showSnackBar(snackBar) ;
     injuryCountController.clear();
     injuryTypeController.clear();
     fullNameController.clear();
@@ -396,8 +391,6 @@ class _AddIssueState extends State<AddIssue> {
       fullAddress: fullAddressController.text ,
       resType: selectedRescue ,
     );
-    SnackBar snackBar = SnackBar(content: Text('تم اضافة النموذج'),);
-    _scaffoldKey.currentState.showSnackBar(snackBar) ;
     fireTypeController.clear();
     firePlaceController.clear();
     fullNameController.clear();
